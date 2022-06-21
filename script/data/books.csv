@@ -1,0 +1,11 @@
+id,author,title,coverImage,pages,releaseDate
+1,Charles Dickens,Oliver Twist,,234,1839
+2,Stephen King,The Gunslinger,https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstephenking.com%2Fpromo%2Fdark-tower-2016-collection%2Fimages%2Fthe_gunslinger.jpg,231,1982
+3,William Shakespear,Hamlet,,160,1603
+4,Robert Jordan,The Eye of the World,https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg,782,1990
+5,Haruki Murakami,1Q84,http://t0.gstatic.com/images?q=tbn:ANd9GcTBQZSg-b2LFkLlt9fWndS1w8SONabDZBHf0dtdb3-bqcuKxduL,928,2009
+6,Frank Herbert,Dune,https://upload.wikimedia.org/wikipedia/en/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg,890,1965
+7,Neal Stephenson,Seveneves,https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1449142000l/22816087.jpg,872,2015
+8,Aldous Huxley,Brave New World,https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1494225554l/11517032._SY475_.jpg,135,1932
+9,Ted Chiang,Stories of Your Life and Others,https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1499943597l/18626849._SY475_.jpg,352,2002
+10,Andy Weir,The Martian,https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1413706054l/18007564.jpg,384,2011

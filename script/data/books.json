@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "author": "Charles Dickens",
+    "title": "Oliver Twist",
+    "coverImage": "",
+    "pages": 234,
+    "releaseDate": "1839"
+  },
+  {
+    "id": 2,
+    "author": "Stephen King",
+    "title": "The Gunslinger",
+    "coverImage": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstephenking.com%2Fpromo%2Fdark-tower-2016-collection%2Fimages%2Fthe_gunslinger.jpg",
+    "pages": 231,
+    "releaseDate": "1982"
+  },
+  {
+    "id": 3,
+    "author": "William Shakespear",
+    "title": "Hamlet",
+    "coverImage": "",
+    "pages": 160,
+    "releaseDate": "1603"
+  },
+  {
+    "id": 4,
+    "author": "Robert Jordan",
+    "title": "The Eye of the World",
+    "coverImage": "https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg",
+    "pages": 782,
+    "releaseDate": "1990"
+  },
+
+  {
+    "id": 5,
+    "author": "Haruki Murakami",
+    "title": "1Q84",
+    "coverImage": "http://t0.gstatic.com/images?q=tbn:ANd9GcTBQZSg-b2LFkLlt9fWndS1w8SONabDZBHf0dtdb3-bqcuKxduL",
+    "pages": 928,
+    "releaseDate": "2009"
+  },
+
+  {
+    "id": 6,
+    "author": "Frank Herbert",
+    "title": "Dune",
+    "coverImage": "https://upload.wikimedia.org/wikipedia/en/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg",
+    "pages": 890,
+    "releaseDate": "1965"
+  },
+  {
+    "id": 7,
+    "author": "Neal Stephenson",
+    "title": "Seveneves",
+    "coverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1449142000l/22816087.jpg",
+    "pages": 872,
+    "releaseDate": "2015"
+  },
+  {
+    "id": 8,
+    "author": "Aldous Huxley",
+    "title": "Brave New World",
+    "coverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1494225554l/11517032._SY475_.jpg",
+    "pages": 135,
+    "releaseDate": "1932"
+  },
+  {
+    "id": 9,
+    "author": "Ted Chiang",
+    "title": "Stories of Your Life and Others",
+    "coverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1499943597l/18626849._SY475_.jpg",
+    "pages": 352,
+    "releaseDate": "2002"
+  },
+  {
+    "id": 10,
+    "author": "Andy Weir",
+    "title": "The Martian",
+    "coverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1413706054l/18007564.jpg",
+    "pages": 384,
+    "releaseDate": "2011"
+  }
+]

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Lektion 1 - Sökfunktion</title>
+</head>
+
+<body class="overflow-hidden">
+  <!-- Lektion 2 -->
+  <!-- Lektion 3: Hur döper vi id? -->
+  <main id="root" class="pt-24 bg-gradient-to-br from-indigo-500 to-green-400 min-h-screen ">
+    <section class="w-1/3 mx-auto ">
+      <h1 class="mb-2 text-2xl text-green-100">Sök böcker</h1>
+      <section class=" flex items-center">
+        <label class="relative block text-3xl" for="searchInput">
+        </label>
+        <input class="w-full rounded-full border-blue-400 px-4"
+               type="text"
+               name="searchInput"
+               id="searchInput" />
+      </section>
+    </section>
+  </main>
+  <script src="script/data/books.js"></script>
+  <script src="script/data/api.js"></script>
+  <script src="script/components/BookDetail.js"></script>
+  <script src="script/components/BookListItem.js"></script>
+  <script src="script/components/BookList.js"></script>
+  <script src="script/app.js"></script>
+</body>
+
+</html>
