@@ -2,7 +2,7 @@ function BookListItem(book) {
   const { id, author, title } = book;
   const bookListItem = document.createElement('li');
   bookListItem.addEventListener('mouseenter', (e) => OpenBookDetail(id, e));
-  /* mouseout triggas om man hovrar över span-elementet, alternativ använd pointer-events none på span*/
+
   bookListItem.addEventListener('mouseleave', (e) => CloseBookDetail(e));
 
   bookListItem.classList.add(

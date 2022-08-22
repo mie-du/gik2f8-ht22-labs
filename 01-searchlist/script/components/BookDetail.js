@@ -1,7 +1,4 @@
-/* Labb: skapa ruta fönster, hämta en bok från api:et (get by id) */
-
 function createDomElement() {
-  /* function scoped */
   const bookDetailContainer = document.createElement('div');
   bookDetailContainer.setAttribute('id', 'bookDetailContainer');
   bookDetailContainer.classList.add(
@@ -26,17 +23,17 @@ async function OpenBookDetail(bookId) {
   } else {
     bookDetailContainer = createDomElement();
     app.insertAdjacentElement('beforeend', bookDetailContainer);
-    /* Börja lyssna efter mouseevents när bookDetailContainern har skapats */
-    window.addEventListener('mousemove', (e) => updatePos(e, bookDetailContainer));
+
+    window.addEventListener('mousemove', (e) =>
+      updatePos(e, bookDetailContainer)
+    );
   }
 
-  /* function scoped book */
   const book = await getById(bookId);
   bookDetailContainer.innerHTML = renderDetail(book);
 }
 
 function updatePos(e, bookDetailContainer) {
-  /* Reservkoll */
   if (bookDetailContainer) {
     bookDetailContainer.style.left = `${e.clientX}px`;
     bookDetailContainer.style.top = `${e.clientY}px`;
