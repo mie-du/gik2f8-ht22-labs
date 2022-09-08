@@ -15,16 +15,14 @@ function handleKey(e) {
   let searchBooks = [...localBooks];
   const searchString = e.target.value.toLowerCase();
 
-  if (e.keyCode === 8) {
+  /*   if (e.keyCode === 8) {
     searchString ? (searchBooks = [...localBooks]) : (searchBooks = []);
-  }
+  } */
 
   if (e.type === 'keyup') {
     filterBooks(
       searchBooks.filter(
-        ({ title, author }) =>
-          title.toLowerCase().includes(searchString) ||
-          author.toLowerCase().includes(searchString)
+        ({ title, author }) => title.toLowerCase().includes(searchString) || author.toLowerCase().includes(searchString)
       )
     );
   }
@@ -33,6 +31,5 @@ function handleKey(e) {
 function filterBooks(localBooks) {
   const bookList = document.getElementById('bookList');
   bookList && app.removeChild(bookList);
-  localBooks.length &&
-    app.insertAdjacentElement('beforeend', BookList(localBooks));
+  localBooks.length && app.insertAdjacentElement('beforeend', BookList(localBooks));
 }
