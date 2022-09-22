@@ -1,0 +1,16 @@
+/* :focus-within {
+  outline: none;
+  border: 0;
+} */
+
+body {
+  color: #333;
+}
+
+.message {
+  display: none;
+}
+
+.message--visible {
+  display: block;
+}
