@@ -11,7 +11,15 @@ class Validation {
     const fieldConstraints = this.constraints[name] || null;
 
     let validationMessage = '';
+    console.log(fieldConstraints);
+    console.log(value);
     if (fieldConstraints) {
+      if (fieldConstraints.required) {
+        if (value.length === 0) {
+          this.valid = false;
+          validationMessage = fieldConstraints.required;
+        }
+      }
       /* Checking length */
       if (fieldConstraints.length) {
         const { valid, message } = this.validateLength(value, fieldConstraints.length);
