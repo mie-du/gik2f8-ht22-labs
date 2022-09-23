@@ -48,8 +48,10 @@ function addListeners() {
 }
 
 function fetchData() {
-  getAll().then((todoList) => {
-    todoList.forEach((todo) => todoListElement.insertAdjacentHTML('beforeend', Task(todo)));
+  getAll().then((response) => {
+    console.log(response);
+    response.status === 'success' &&
+      response.data.forEach((todo) => todoListElement.insertAdjacentHTML('beforeend', Task(todo)));
   });
 }
 
@@ -78,10 +80,10 @@ function onSubmit(e) {
 
   if (validation.isValid()) {
     const todo = { title: title.value, description: description.value, date: date.value, completed: false };
-    console.log(todo);
-    create(todo).then((savedTodo) => {
-      console.log(savedTodo);
-      todoListElement.insertAdjacentHTML('beforeend', Task(savedTodo.data));
+    console.log(response);
+
+    create(todo).then((response) => {
+      response.status === 'success' && todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
     });
   }
 }

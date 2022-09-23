@@ -11,8 +11,7 @@ class Validation {
     const fieldConstraints = this.constraints[name] || null;
 
     let validationMessage = '';
-    console.log(fieldConstraints);
-    console.log(value);
+
     if (fieldConstraints) {
       if (fieldConstraints.required) {
         if (value.length === 0) {
