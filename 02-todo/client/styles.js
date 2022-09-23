@@ -8,3 +8,14 @@ const form = {
     width: 'full'
   }
 };
+const tasks = {
+  color: 'cyan-900',
+  title: {
+    style: 'font-bold',
+    size: '2xl'
+  },
+  description: {
+    style: 'italic',
+    size: 'md'
+  }
+};

@@ -77,7 +77,7 @@ function onSubmit(e) {
   validateField(date);
 
   if (validation.isValid()) {
-    const todo = { title: title.value, description: description.value, completed: false };
+    const todo = { title: title.value, description: description.value, date: date.value, completed: false };
     console.log(todo);
     create(todo).then((savedTodo) => {
       console.log(savedTodo);
