@@ -41,18 +41,18 @@ class Form {
   };
 
   addListeners = () => {
-    todoForm.title.addEventListener('keyup', (e) => validateField(e.target));
-    todoForm.title.addEventListener('blur', (e) => validateField(e.target));
-    todoForm.description.addEventListener('keyup', (e) => validateField(e.target));
-    todoForm.description.addEventListener('blur', (e) => validateField(e.target));
-    todoForm.date.addEventListener('keyup', (e) => validateField(e.target));
-    todoForm.date.addEventListener('blur', (e) => validateField(e.target));
+    todoForm.title.addEventListener('keyup', (e) => this.validateField(e.target));
+    todoForm.title.addEventListener('blur', (e) => this.validateField(e.target));
+    todoForm.description.addEventListener('keyup', (e) => this.validateField(e.target));
+    todoForm.description.addEventListener('blur', (e) => this.validateField(e.target));
+    todoForm.date.addEventListener('keyup', (e) => this.validateField(e.target));
+    todoForm.date.addEventListener('blur', (e) => this.validateField(e.target));
     todoForm.addEventListener('submit', onSubmit);
   };
 
   validateField = (field) => {
     const messageElement = field.previousElementSibling;
-    const validationErrors = validation.validate(field);
+    const validationErrors = this.validation.validate(field);
 
     if (!validationErrors) {
       messageElement.classList.remove('message--visible');
@@ -63,5 +63,8 @@ class Form {
       messageElement.innerHTML = 'Valideringsfel: ' + validationErrors;
       todoForm.submitTodo.disabled = true;
     }
+  };
+  isValid = () => {
+    return this.validation.isValid();
   };
 }

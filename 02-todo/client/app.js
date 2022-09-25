@@ -34,7 +34,7 @@ function onSubmit(e) {
   form.validateField(description);
   form.validateField(date);
 
-  if (validation.isValid()) {
+  if (form.isValid()) {
     const todo = { title: title.value, description: description.value, date: date.value, completed: false };
 
     create(todo).then((response) => {
