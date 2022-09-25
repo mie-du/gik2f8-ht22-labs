@@ -24,6 +24,7 @@ app
   .use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', '*');
     next();
   });
 
@@ -56,9 +57,22 @@ app.post('/todo', async (req, res) => {
   }
 });
 
-app.put('/todo', (req, res) => {
-  const task = req.body;
-  console.log(task.id);
+app.put('/todo', async (req, res) => {
+  try {
+    const updatedData = req.body;
+    const data = await fs.readFile('./data.json');
+    const currentList = JSON.parse(data);
+
+    await fs.writeFile(
+      './data.json',
+      JSON.stringify(
+        currentList.map((task) => (task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task))
+      )
+    );
+    res.send({ status: 'success', data: task });
+  } catch (error) {
+    res.send({ status: 'error', data: { message: error.message, stack: error.stack } });
+  }
 });
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

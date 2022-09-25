@@ -24,3 +24,15 @@ function create(data) {
     .then((result) => result.json())
     .then((data) => data));
 }
+
+function setCompleted(id, completed) {
+  const JSONData = JSON.stringify({ id, completed });
+
+  fetch(url, {
+    method: 'PUT',
+    body: JSONData,
+    headers: {
+      'content-type': 'application/json'
+    }
+  });
+}

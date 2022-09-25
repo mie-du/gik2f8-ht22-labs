@@ -1,12 +1,12 @@
-/* :focus-within {
-  outline: none;
-  border: 0;
-} */
-
 body {
   color: #333;
+  font-family: 'Fira Code', sans-serif;
 }
 
+h1,
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+}
 .message {
   display: none;
 }
