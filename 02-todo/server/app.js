@@ -66,7 +66,8 @@ app.put('/todo', async (req, res) => {
     await fs.writeFile(
       './data.json',
       JSON.stringify(
-        currentList.map((task) => (task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task))
+        /* currentList.map((task) => (task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task)) */
+        currentList.map((task) => (task.id == updatedData.id ? (task.completed = updatedData.completed) : task))
       )
     );
     res.send({ status: 'success', data: task });
