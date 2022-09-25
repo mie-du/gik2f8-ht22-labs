@@ -12,8 +12,6 @@
 
 /* 3. Express */
 const express = require('express');
-
-const path = require('path');
 const app = express();
 
 //globalt i node.
@@ -57,9 +55,10 @@ app.post('/todo', async (req, res) => {
     res.send({ status: 'error', data: { message: error.message, stack: error.stack } });
   }
 });
-
+form
 app.put('/todo', (req, res) => {
   const task = req.body;
+  console.log(task.id);
 });
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
