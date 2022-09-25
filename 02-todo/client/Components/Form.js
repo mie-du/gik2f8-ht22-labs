@@ -19,6 +19,7 @@ class Form {
       required: 'Datum får inte vara tomt.'
     }
   };
+
   validation = null;
 
   constructor() {
@@ -47,7 +48,7 @@ class Form {
     todoForm.description.addEventListener('blur', (e) => this.validateField(e.target));
     todoForm.date.addEventListener('keyup', (e) => this.validateField(e.target));
     todoForm.date.addEventListener('blur', (e) => this.validateField(e.target));
-    todoForm.addEventListener('submit', onSubmit);
+    todoForm.addEventListener('submit', this.onSubmit);
   };
 
   validateField = (field) => {
@@ -64,7 +65,23 @@ class Form {
       todoForm.submitTodo.disabled = true;
     }
   };
-  isValid = () => {
-    return this.validation.isValid();
+
+  onSubmit = (e) => {
+    console.log(e);
+    e.preventDefault();
+    const { title, description, date } = todoForm;
+    console.log(title, description, date);
+    this.validateField(title);
+    this.validateField(description);
+    this.validateField(date);
+
+    if (this.validation.isValid()) {
+      const todo = { title: title.value, description: description.value, date: date.value, completed: false };
+
+      create(todo).then((response) => {
+        console.log(response);
+        response.status === 'success' && todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
+      });
+    }
   };
 }
