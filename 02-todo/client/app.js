@@ -80,9 +80,9 @@ function onSubmit(e) {
 
   if (validation.isValid()) {
     const todo = { title: title.value, description: description.value, date: date.value, completed: false };
-    console.log(response);
 
     create(todo).then((response) => {
+      console.log(response);
       response.status === 'success' && todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
     });
   }
