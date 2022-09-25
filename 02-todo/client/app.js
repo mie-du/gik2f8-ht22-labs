@@ -25,21 +25,3 @@ function fetchData() {
       response.data.forEach((todo) => todoListElement.insertAdjacentHTML('beforeend', Task(todo)));
   });
 }
-
-function onSubmit(e) {
-  e.preventDefault();
-  const { title, description, date } = todoForm;
-  console.log(title, description);
-  form.validateField(title);
-  form.validateField(description);
-  form.validateField(date);
-
-  if (form.isValid()) {
-    const todo = { title: title.value, description: description.value, date: date.value, completed: false };
-
-    create(todo).then((response) => {
-      console.log(response);
-      response.status === 'success' && todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
-    });
-  }
-}
