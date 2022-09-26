@@ -29,7 +29,7 @@ function setCompleted(id, completed) {
   const JSONData = JSON.stringify({ id, completed });
 
   fetch(url, {
-    method: 'PUT',
+    method: 'PATCH',
     body: JSONData,
     headers: {
       'content-type': 'application/json'

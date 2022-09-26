@@ -5,7 +5,7 @@ const Task = ({ id, title, description, date, completed }) => {
           <input class="appearance-none ring-offset-4 ring-2 ring-yellow-500 rounded-sm 
           checked:border-green-500 checked:ring-green-500 checked:bg-green-300 h-4 w-4 mr-4" ${
             completed ? 'checked' : ''
-          } onchange="taskStatusChange(event, ${id})" id="taskId${id}" data-id=${id} type="checkbox" />
+          } onchange="taskStatusChange(event, ${id})" type="checkbox" />
         `;
 
   !description && (html += `<label for="taskId${id}" class="flex-1 text-${styles.task.title.size}">${title}</label>`);
@@ -24,6 +24,5 @@ const Task = ({ id, title, description, date, completed }) => {
 };
 
 const taskStatusChange = (e, id) => {
-  console.log(e.target.getAttribute('data-id'));
   setCompleted(id, e.target.checked);
 };
