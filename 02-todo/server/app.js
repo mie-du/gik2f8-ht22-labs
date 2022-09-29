@@ -57,19 +57,4 @@ app.post('/todo', async (req, res) => {
   }
 });
 
-app.patch('/todo', async (req, res) => {
-  try {
-    const updatedData = req.body;
-    const data = await fs.readFile('./data.json');
-    const currentList = JSON.parse(data);
-    const updatedList = currentList.map((task) =>
-      task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task
-    );
-    await fs.writeFile('./data.json', JSON.stringify(updatedList));
-    res.send({ status: 'success', data: task });
-  } catch (error) {
-    res.send({ status: 'error', data: { message: error.message, stack: error.stack } });
-  }
-});
-
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
