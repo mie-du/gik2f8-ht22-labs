@@ -1,4 +1,4 @@
-const url = 'http://localhost:5000/todo';
+const url = 'http://localhost:5000/task';
 
 function getAll() {
   //first response returns data stream, needs to be converted to json.
@@ -28,11 +28,21 @@ function create(data) {
 function setCompleted(id, completed) {
   const JSONData = JSON.stringify({ id, completed });
 
-  fetch(url, {
+  return (result = fetch(url, {
     method: 'PATCH',
     body: JSONData,
     headers: {
       'content-type': 'application/json'
     }
-  });
+  })
+    .then((result) => result.json())
+    .then((data) => data));
+}
+
+function remove(id) {
+  return (result = fetch(`${url}/${id}`, {
+    method: 'DELETE'
+  })
+    .then((result) => result.json())
+    .then((data) => data));
 }
