@@ -59,7 +59,7 @@ function renderDetail({ title, author, coverImage, pages, releaseDate }) {
               ${
                 coverImage
                   ? `<img  class="h-full w-full" src="${coverImage}" alt="Omslagsbild på ${title}" />`
-                  : `<div>Ingen bild</div>`
+                  : `<div class="p-2 h-full border border-green-400 bg-white/75">Ingen bild</div>`
               }
               </div>
             </div>`;
