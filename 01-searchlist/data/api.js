@@ -9,5 +9,12 @@ function getAllJSON() {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => data)
-    .catch((e) => [e]);
+    .catch((e) => console.log(e));
+}
+
+function getById(id) {
+  return (result = fetch(`${url}/${id}`)
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((e) => console.log(e)));
 }

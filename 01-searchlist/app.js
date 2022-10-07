@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 searchInput.focus();
+const root = document.getElementById('root');
 // 7. Ta bort befintliga böcker och låt bookList vara let.
 let bookList = [];
 // 8.  Skapa lyssnare för window så att böckerna kan hämtas när sidan laddats.
@@ -42,12 +43,12 @@ function searchBooks(searchTerm) {
 }
 
 function renderBookList(list) {
-  const root = document.getElementById('root');
-
   //6 Refactor: Kortslut koll av existerande lista och listans längd.
   const existingList = document.querySelector('.book-list');
   existingList && root.removeChild(existingList);
 
   //6.1 Resonemang: Vill vi att listan ska synas även när ingen sökterm är angiven? Man kan lägga till en koll så att searchInput har ett värde. Behöver inte kolla > 0, för 0 är falsy.
-  list.length > 0 && searchInput.value && root.insertAdjacentHTML('beforeend', BookList(list));
+  list.length > 0 &&
+    searchInput.value &&
+    root.insertAdjacentElement('beforeend', BookList(list));
 }
