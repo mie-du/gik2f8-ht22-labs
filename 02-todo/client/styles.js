@@ -1,23 +1,25 @@
 const styles = {
+  rounded: 'rounded-md',
   form: {
     border: {
-      width: 4,
-      color: 'cyan-500',
-      colorFocus: 'cyan-700'
+      width: 'w-4',
+      color: 'border-cyan-500',
+      colorFocus: 'focus:border-cyan-700'
     },
     field: {
-      width: 'full'
+      width: 'w-full'
     }
   },
   task: {
-    color: 'cyan-900',
+    color: 'text-cyan-800',
     title: {
       style: 'font-bold',
-      size: '2xl'
+      size: 'text-2xl'
     },
+    completedColor: 'text-gray-400',
     description: {
       style: 'italic',
-      size: 'md'
+      size: 'text-md'
     }
   }
 };

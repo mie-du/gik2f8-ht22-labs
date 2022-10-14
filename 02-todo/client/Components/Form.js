@@ -21,11 +21,13 @@ class Form {
   };
 
   validation = null;
+  formContainer = null;
 
-  constructor() {
+  constructor(formContainer) {
     this.validation = new Validation(this.constraints);
+    this.formContainer = formContainer;
   }
-  render = (id, name, fields) => {
+  render = (id, name, fields, formContainer) => {
     let html = `
       <form id="${id}" name="${id}">`;
 
@@ -34,11 +36,12 @@ class Form {
     });
 
     html += `
-        <button name="submit${name}" disabled class="rounded-md bg-yellow-500 hover:bg-yellow-400 px-4 py-1"
+        <button name="submit${name}" disabled class="${styles.rounded} bg-yellow-500 hover:bg-yellow-400 px-4 py-1"
         type="submit">Spara</button>
       </form>`;
 
-    return html;
+    this.formContainer.insertAdjacentHTML('beforeend', html);
+    this.addListeners();
   };
 
   addListeners = () => {
@@ -77,10 +80,9 @@ class Form {
   };
 
   onSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
     const { title, description, date } = todoForm;
-    console.log(title, description, date);
+
     this.validateField(title);
     this.validateField(description);
     this.validateField(date);
@@ -94,9 +96,7 @@ class Form {
       };
 
       create(todo).then((response) => {
-        console.log(response);
-        response.status === 'success' &&
-          todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
+        response.status === 'success' && TodoList.render();
       });
     }
   };
