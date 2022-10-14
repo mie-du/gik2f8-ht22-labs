@@ -42,11 +42,21 @@ class Form {
   };
 
   addListeners = () => {
-    todoForm.title.addEventListener('keyup', (e) => this.validateField(e.target));
-    todoForm.title.addEventListener('blur', (e) => this.validateField(e.target));
-    todoForm.description.addEventListener('keyup', (e) => this.validateField(e.target));
-    todoForm.description.addEventListener('blur', (e) => this.validateField(e.target));
-    todoForm.date.addEventListener('keyup', (e) => this.validateField(e.target));
+    todoForm.title.addEventListener('keyup', (e) =>
+      this.validateField(e.target)
+    );
+    todoForm.title.addEventListener('blur', (e) =>
+      this.validateField(e.target)
+    );
+    todoForm.description.addEventListener('keyup', (e) =>
+      this.validateField(e.target)
+    );
+    todoForm.description.addEventListener('blur', (e) =>
+      this.validateField(e.target)
+    );
+    todoForm.date.addEventListener('keyup', (e) =>
+      this.validateField(e.target)
+    );
     todoForm.date.addEventListener('blur', (e) => this.validateField(e.target));
     todoForm.addEventListener('submit', this.onSubmit);
   };
@@ -76,11 +86,17 @@ class Form {
     this.validateField(date);
 
     if (this.validation.isValid()) {
-      const todo = { title: title.value, description: description.value, date: date.value, completed: false };
+      const todo = {
+        title: title.value,
+        description: description.value,
+        date: date.value,
+        completed: false
+      };
 
       create(todo).then((response) => {
         console.log(response);
-        response.status === 'success' && todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
+        response.status === 'success' &&
+          todoListElement.insertAdjacentHTML('beforeend', Task(response.data));
       });
     }
   };
