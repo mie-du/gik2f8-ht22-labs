@@ -22,13 +22,14 @@ app
   .use(express.json())
   .use(express.urlencoded({ extended: false }))
   .use((req, res, next) => {
+    console.log(req.params, req.body, req.method);
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, PATCH, POST, DELETE');
     next();
   });
 
-app.get('/todo', async (req, res) => {
+app.get('/task', async (req, res) => {
   /* Always assume that data.json exists */
   /* Promise based read file */
   try {
@@ -44,7 +45,7 @@ app.get('/todo', async (req, res) => {
   }
 });
 
-app.post('/todo', async (req, res) => {
+app.post('/task', async (req, res) => {
   try {
     const data = await fs.readFile('./data.json');
     const currentList = JSON.parse(data);
@@ -57,7 +58,7 @@ app.post('/todo', async (req, res) => {
   }
 });
 
-app.patch('/todo', async (req, res) => {
+app.patch('/task', async (req, res) => {
   try {
     const updatedData = req.body;
     const data = await fs.readFile('./data.json');
@@ -66,7 +67,26 @@ app.patch('/todo', async (req, res) => {
       task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task
     );
     await fs.writeFile('./data.json', JSON.stringify(updatedList));
-    res.send({ status: 'success', data: task });
+    res.send({ status: 'success', data: { message: 'Item updated' } });
+  } catch (error) {
+    res.send({ status: 'error', data: { message: error.message, stack: error.stack } });
+  }
+});
+
+app.delete('/task/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await fs.readFile('./data.json');
+    const currentList = JSON.parse(data);
+    if (data.length > 0) {
+      await fs.writeFile(
+        './data.json',
+        currentList.filter((task) => task.id != id)
+      );
+      res.send({ status: 'success', data: { message: 'Item deleted' } });
+    } else {
+      res.send({ status: 'error', data: { message: 'No post to delete' } });
+    }
   } catch (error) {
     res.send({ status: 'error', data: { message: error.message, stack: error.stack } });
   }

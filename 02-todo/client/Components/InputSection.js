@@ -6,13 +6,13 @@ const InputSection = ({ id, name, type }) => {
   switch (type) {
     case 'textarea':
       html += `
-        <textarea maxlength="500" rows="5" style="resize: none" class="w-${styles.form.field.width} rounded-xl border-${styles.form.border.color} px-4 border-2 focus:border-${styles.form.border.focus} focus-within:outline-none"
+        <textarea maxlength="500" rows="5" style="resize: none" class="${styles.form.field.width} ${styles.rounded} ${styles.form.border.color} px-4 border-2 focus:border-${styles.form.border.focus} focus-within:outline-none"
         name="${id}" id="${id}"></textarea>`;
       break;
     case 'text':
     case 'date':
       html += `
-        <input class="w-${styles.form.field.width} rounded-lg border-${styles.form.border.color} px-4 py-2 border-2 focus:border-${styles.form.border.focus} focus-within:outline-none" type="${type}" name="${id}" id="${id}" />`;
+        <input class="${styles.form.field.width} ${styles.rounded} ${styles.form.border.color} px-4 py-2 border-2 focus:border-${styles.form.border.focus} focus-within:outline-none" type="${type}" name="${id}" id="${id}" />`;
       break;
   }
   html += `
