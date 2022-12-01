@@ -1,4 +1,4 @@
-const url = 'http://localhost:5000/task';
+const url = 'http://localhost:5000/tasks';
 
 function getAll() {
   //first response returns data stream, needs to be converted to json.

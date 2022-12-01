@@ -8,6 +8,7 @@ const TodoList = {
       console.log('rendering', response);
 
       this.todoList.innerHTML = '';
+
       response.status === 'success' &&
         response.data.forEach((task) => {
           const html = this.renderTask(task);
@@ -25,9 +26,7 @@ const TodoList = {
       .getElementById(`task${id}Checkbox`)
       .addEventListener('change', (e) => this.onChecked(id, e.target.checked));
 
-    document
-      .getElementById(`task${id}DeleteBtn`)
-      .addEventListener('click', () => this.onDelete(id));
+    document.getElementById(`task${id}DeleteBtn`).addEventListener('click', () => this.onDelete(id));
   },
 
   renderTask(task) {
@@ -45,9 +44,7 @@ const TodoList = {
          `;
 
     !description &&
-      (html += `<label for="task${id}Checkbox" class="flex-1 ${
-        styles.task.title.size
-      } ${
+      (html += `<label for="task${id}Checkbox" class="flex-1 ${styles.task.title.size} ${
         completed ? styles.task.completedColor : styles.task.color
       }">${title}</label>`);
 
@@ -60,9 +57,7 @@ const TodoList = {
       }">${title}
               </label>
             </summary>
-           <p class="${
-             styles.task.description.style
-           } ml-4 mt-2">${description}</p>
+           <p class="${styles.task.description.style} ml-4 mt-2">${description}</p>
          </details>`);
     html += `
          <span>${date}<span>
@@ -74,15 +69,11 @@ const TodoList = {
 
   onChecked(id, checked) {
     console.log('Check id: ', id, checked);
-    setCompleted(id, checked).then(
-      (response) => response.status == 'success' && this.render()
-    );
+    setCompleted(id, checked).then((response) => response.status == 'success' && this.render());
   },
 
   onDelete(id) {
     console.log('Delete id: ', id);
-    remove(id).then(
-      (response) => response.status == 'success' && this.render()
-    );
+    remove(id).then((response) => response.status == 'success' && this.render());
   }
 };

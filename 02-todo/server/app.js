@@ -15,7 +15,7 @@ const express = require('express');
 const app = express();
 
 const path = require('path');
-const filePath = `./data/data.json`;
+const filePath = `./data.json`;
 //globalt i node.
 const fs = require('fs/promises');
 
@@ -71,9 +71,7 @@ app.patch('/task', async (req, res) => {
     const data = await fs.readFile(filePath);
     const currentList = JSON.parse(data);
     const updatedList = currentList.map((task) =>
-      task.id == updatedData.id
-        ? { ...task, completed: updatedData.completed }
-        : task
+      task.id == updatedData.id ? { ...task, completed: updatedData.completed } : task
     );
     await fs.writeFile(filePath, JSON.stringify(updatedList));
     res.send({ status: 'success', data: { message: 'Item updated' } });
@@ -88,14 +86,13 @@ app.patch('/task', async (req, res) => {
 app.delete('/task/:id', async (req, res) => {
   try {
     const id = req.params.id;
-
     const data = await fs.readFile(filePath);
-    const currentList = JSON.parse(data);
     if (data.length > 0) {
-      await fs.writeFile(
-        filePath,
-        currentList.filter((task) => task.id != id)
-      );
+      const currentList = JSON.parse(data);
+      const updatedList = currentList.filter((task) => task.id != id);
+
+      console.log(updatedList);
+      await fs.writeFile(filePath, updatedList);
       res.send({ status: 'success', data: { message: 'Item deleted' } });
     } else {
       res.send({ status: 'error', data: { message: 'No post to delete' } });
