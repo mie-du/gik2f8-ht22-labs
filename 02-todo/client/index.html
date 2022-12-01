@@ -7,28 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <title>Lektion 2 - Todo-lista</title>
   </head>
 
   <body>
-    <main
-      id="root"
-      class="pt-24 bg-gradient-to-br from-green-500 to-yellow-400 min-h-screen">
+    <main id="root" class="pt-24 bg-gradient-to-br from-green-500 to-yellow-400 min-h-screen">
       <!-- Vi övar inte längre på DOM, ok att använda vanlig HTML här. Listan ska dock vara någonstans... -->
       <h1 class="text-center mb-10 text-7xl text-green-900">Todo-lista</h1>
-      <section
-        class="flex gap-10 w-full xl:w-4/5 mx-2 xl:mx-auto bg-white bg-opacity-75 p-5 rounded-lg">
-        <section id="formContainer" class="flex-1">
-          <h2 class="mb-6 text-4xl">Lägg till en uppgift</h2>
+      <section class="flex gap-10 flex-wrap w-full lg:w-5/6 mx-2 lg:mx-auto bg-white bg-opacity-75 p-5 rounded-lg">
+        <section id="formContainer" class="w-full md:flex-1 lg:flex-initial lg:w-1/3">
+          <h2 class="mb-6 text-xl lg:text-2xl">Lägg till en uppgift</h2>
         </section>
-        <section class="flex-1 p-5">
-          <h2 class="mb-6 text-4xl">Alla uppgifter</h2>
-          <ul id="todoList"></ul>
+        <section class="flex-1">
+          <h2 class="mb-6 text-xl lg:text-2xl">Alla uppgifter</h2>
+          <ul id="todoList" class="w-full"></ul>
         </section>
       </section>
     </main>

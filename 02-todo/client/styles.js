@@ -14,7 +14,7 @@ const styles = {
     color: 'text-cyan-800',
     title: {
       style: 'font-bold',
-      size: 'text-2xl'
+      size: 'text-lg lg:text-xl '
     },
     completedColor: 'text-gray-400',
     description: {

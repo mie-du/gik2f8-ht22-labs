@@ -30,7 +30,7 @@ app
     next();
   });
 
-app.get('/task', async (req, res) => {
+app.get('/tasks', async (req, res) => {
   /* Always assume that data.json exists */
   /* Promise based read file */
   try {
@@ -49,7 +49,7 @@ app.get('/task', async (req, res) => {
   }
 });
 
-app.post('/task', async (req, res) => {
+app.post('/tasks', async (req, res) => {
   try {
     const data = await fs.readFile(filePath);
     const currentList = JSON.parse(data);
@@ -65,7 +65,7 @@ app.post('/task', async (req, res) => {
   }
 });
 
-app.patch('/task', async (req, res) => {
+app.patch('/tasks', async (req, res) => {
   try {
     const updatedData = req.body;
     const data = await fs.readFile(filePath);
@@ -83,7 +83,7 @@ app.patch('/task', async (req, res) => {
   }
 });
 
-app.delete('/task/:id', async (req, res) => {
+app.delete('/tasks/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const data = await fs.readFile(filePath);

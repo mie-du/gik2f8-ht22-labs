@@ -10,14 +10,25 @@ const TodoList = {
       this.todoList.innerHTML = '';
 
       response.status === 'success' &&
-        response.data.forEach((task) => {
-          const html = this.renderTask(task);
-          task.completed
-            ? this.todoList.insertAdjacentHTML('beforeend', html)
-            : this.todoList.insertAdjacentHTML('afterbegin', html);
-
-          this.addTaskListener(task);
-        });
+        response.data
+          .reduce(
+            (result, element) => {
+              /* Completed element in the second array by using true = 1, false = 0 */
+              result[Number(element.completed)].push(element);
+              return result;
+            },
+            [[], []]
+          )
+          /* For each array */
+          .forEach((arr) => {
+            /* Sort it and then add it */
+            arr
+              .sort((a, b) => new Date(a.date) - new Date(b.date))
+              .forEach((task) => {
+                this.todoList.insertAdjacentHTML('beforeend', this.renderTask(task));
+                this.addTaskListener(task);
+              });
+          });
     });
   },
 
@@ -33,6 +44,9 @@ const TodoList = {
     this.task = task;
     const { id, title, description, completed, date } = task;
     console.log(completed ? styles.task.completedColor : styles.task.color);
+
+    let button = `
+      <button onclick="handleClick()">Button</button>`;
 
     let html = `
      <li class="select-none mt-2 p-2 border-b border-amber-300 ">
@@ -60,14 +74,15 @@ const TodoList = {
            <p class="${styles.task.description.style} ml-4 mt-2">${description}</p>
          </details>`);
     html += `
-         <span>${date}<span>
-         <span id="task${id}DeleteBtn" class="inline-block bg-amber-500 text-xs text-amber-900 border border-white px-3 py-1 rounded-md ml-2">Ta bort<span>
+         <span class="flex items-center text-sm">${date}<span>
+         <button id="task${id}DeleteBtn" class="inline-block bg-amber-500 text-xs text-amber-900 border border-white px-2 lg:px-3 py-1 rounded-md ml-2">Ta bort</button>
        </div>
      </li>`;
     return html;
   },
 
   onChecked(id, checked) {
+    console.log('Setting completed', id);
     console.log('Check id: ', id, checked);
     setCompleted(id, checked).then((response) => response.status == 'success' && this.render());
   },
